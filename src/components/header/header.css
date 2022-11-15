@@ -1,0 +1,35 @@
+.header__container {
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  cursor: pointer;
+}
+
+.header__logout {
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.active-header {
+  text-decoration: underline;
+  text-underline-offset: 7px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #179848;
+}
+
+.inactive-header {
+  font-weight: 600;
+  font-size: 14px;
+}

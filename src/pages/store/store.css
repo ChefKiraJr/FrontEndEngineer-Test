@@ -1,0 +1,15 @@
+.store__container {
+  max-width: 576px;
+  margin: auto;
+}
+
+.store__content {
+  width: 100%;
+  height: 100vh;
+  padding: 0 10%;
+}
+
+.template {
+  background-color: grey;
+  height: 50%;
+}

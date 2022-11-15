@@ -1,0 +1,22 @@
+.home-page__container {
+  max-width: 576px;
+  margin: auto;
+}
+
+.home-page__content {
+  width: 100%;
+  height: 100vh;
+  padding: 0 10%;
+}
+
+.home-page__button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.home-page__modal-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
