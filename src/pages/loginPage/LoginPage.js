@@ -79,7 +79,7 @@ const LoginPage = () => {
     }
   };
   const handleLogin = () => {
-    localStorage.setItem('token', input.username);
+    localStorage.setItem('username', input.username);
     toast({
       title: 'Login Success',
       description: 'Going to your homepage now.',

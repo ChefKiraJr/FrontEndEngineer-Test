@@ -13,7 +13,7 @@
   margin-bottom: 24px;
 }
 
-.home-page__welcome-username {
+.home-page__welcome-name {
   color: #22c35e;
 }
 
@@ -36,7 +36,7 @@
   margin-bottom: 24px;
 }
 
-.home-page__username {
+.home-page__name {
   margin-bottom: 10px;
   border-bottom: 1px solid #22c35e;
 }

@@ -8,9 +8,9 @@ import { ImProfile } from 'react-icons/im';
 const HomePage = () => {
   // eslint-disable-next-line no-unused-vars
   const [data, setData] = useState({
-    username: localStorage.getItem('username')
-      ? localStorage.getItem('username')
-      : localStorage.getItem('token'),
+    name: localStorage.getItem('name')
+      ? localStorage.getItem('name')
+      : localStorage.getItem('username'),
     email: localStorage.getItem('email'),
     telephone: localStorage.getItem('telephone'),
     address: localStorage.getItem('address'),
@@ -21,8 +21,7 @@ const HomePage = () => {
       <Header page={'Home'} />
       <div className="home-page__container">
         <div className="home-page__welcome">
-          Welcome{' '}
-          <span className="home-page__welcome-username">{data.username}!</span>
+          Welcome <span className="home-page__welcome-name">{data.name}!</span>
         </div>
         <div className="home-page__content">
           <ImProfile
@@ -34,9 +33,9 @@ const HomePage = () => {
           />
           <div className="home-page__title">Personal Information</div>
           <div className="home-page__personal-information">
-            <div className="home-page__username">
+            <div className="home-page__name">
               <p className="home-page__information-label">Name</p>
-              <p className="home-page__information-content">{data.username}</p>
+              <p className="home-page__information-content">{data.name}</p>
             </div>
             <div className="home-page__email">
               <p className="home-page__information-label">Email</p>

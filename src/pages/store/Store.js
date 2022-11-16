@@ -14,7 +14,7 @@ const Store = () => {
   const toast = useToast();
   const isCompleted = () => {
     return (
-      (localStorage.getItem('username') || localStorage.getItem('token')) &&
+      (localStorage.getItem('name') || localStorage.getItem('username')) &&
       localStorage.getItem('email') &&
       localStorage.getItem('telephone') &&
       localStorage.getItem('address')
@@ -22,7 +22,9 @@ const Store = () => {
   };
   const fetchData = async () => {
     try {
-      const { data } = await axios.get('http://localhost:3004/films');
+      const { data } = await axios.get(
+        'https://frontend-test-fake-api.herokuapp.com/films'
+      );
       setData(data);
       setTimeout(() => {
         setIsLoading(false);
@@ -34,7 +36,10 @@ const Store = () => {
   const handleEditData = async (value) => {
     try {
       const body = { isAdded: value.isAdded ? false : true };
-      await axios.patch(`http://localhost:3004/films/${value.id}`, body);
+      await axios.patch(
+        `https://frontend-test-fake-api.herokuapp.com/films/${value.id}`,
+        body
+      );
       await fetchData();
     } catch (err) {
       console.log(err);
@@ -43,14 +48,17 @@ const Store = () => {
   const handleAdd = async (value) => {
     try {
       const body = { ...value, quantity: 1 };
-      await axios.post('http://localhost:3004/cartData', body);
+      await axios.post(
+        'https://frontend-test-fake-api.herokuapp.com/cartData',
+        body
+      );
       await handleEditData(value);
       toast({
         title: 'Add Success',
         description: 'Chosen film has been added to shopping cart.',
         status: 'success',
         position: 'top',
-        duration: 400,
+        duration: 1000,
         isClosable: true,
       });
     } catch (err) {
@@ -59,7 +67,9 @@ const Store = () => {
   };
   const handleRemove = async (value) => {
     try {
-      await axios.delete(`http://localhost:3004/cartData/${value.id}`);
+      await axios.delete(
+        `https://frontend-test-fake-api.herokuapp.com/cartData/${value.id}`
+      );
       await handleEditData(value);
       toast({
         title: 'Remove Success',

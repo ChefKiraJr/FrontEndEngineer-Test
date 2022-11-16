@@ -16,7 +16,9 @@ const ShoppingCart = () => {
   const toast = useToast();
   const fetchData = async () => {
     try {
-      const { data } = await axios.get('http://localhost:3004/cartData');
+      const { data } = await axios.get(
+        'https://frontend-test-fake-api.herokuapp.com/cartData'
+      );
       setData(data);
     } catch (err) {
       console.log(err);
@@ -26,8 +28,13 @@ const ShoppingCart = () => {
     try {
       const body = { isAdded: false };
       for (let i = 0; i < data.length; i++) {
-        await axios.delete(`http://localhost:3004/cartData/${data[i].id}`);
-        await axios.patch(`http://localhost:3004/films/${data[i].id}`, body);
+        await axios.delete(
+          `https://frontend-test-fake-api.herokuapp.com/cartData/${data[i].id}`
+        );
+        await axios.patch(
+          `https://frontend-test-fake-api.herokuapp.com/films/${data[i].id}`,
+          body
+        );
       }
       toast({
         title: 'Order Success',
@@ -42,7 +49,7 @@ const ShoppingCart = () => {
       }, 1000);
       setTimeout(() => {
         navigate('/home');
-      }, 2000);
+      }, 3000);
     } catch (err) {
       console.log(err);
     }
@@ -54,64 +61,64 @@ const ShoppingCart = () => {
   return (
     <>
       <Header page={'Cart'} />
-      <div className="shopping-cart__container">
-        {isOrdered ? (
-          <div className="shopping-cart__success-content">
-            <div className="shopping-cart__success-icon">
-              <CheckCircleIcon color="#22c35e" w={48} h={48} />
-            </div>
-            <div className="shopping-cart__success-text">
-              Yayy.. order success!
-            </div>
+
+      {isOrdered ? (
+        <div className="shopping-cart__success-content">
+          <div className="shopping-cart__success-icon">
+            <CheckCircleIcon color="#22c35e" w={48} h={48} />
           </div>
-        ) : (
-          <>
-            {data.length > 0 ? (
-              <div className="shopping-cart__content">
-                <div className="shopping-cart__content-header">
-                  <div className="shopping-cart__content-title">Cart Items</div>
-                  <div className="shopping-cart__content-icon">
-                    <BsCart3
-                      style={{
-                        height: '30px',
-                        width: '30px',
-                        color: '#22c35e',
-                      }}
-                    />
-                  </div>
-                </div>
-                <div className="shopping-cart__ordered-items">
-                  {data.length > 0 && (
-                    <>
-                      {data.map((value) => {
-                        return (
-                          <CartItem
-                            value={value}
-                            fetchData={fetchData}
-                            toast={toast}
-                          />
-                        );
-                      })}
-                    </>
-                  )}
-                </div>
-                <div className="shopping-cart__modal">
-                  <CartModal
-                    data={data}
-                    isOpen={isOpen}
-                    onClose={onClose}
-                    handleOrder={handleOrder}
+          <div className="shopping-cart__success-text">
+            Yayy.. order success!
+          </div>
+        </div>
+      ) : (
+        <div className="shopping-cart__container">
+          {data.length > 0 ? (
+            <div className="shopping-cart__content">
+              <div className="shopping-cart__content-header">
+                <div className="shopping-cart__content-title">Cart Items</div>
+                <div className="shopping-cart__content-icon">
+                  <BsCart3
+                    style={{
+                      height: '30px',
+                      width: '30px',
+                      color: '#22c35e',
+                    }}
                   />
                 </div>
               </div>
-            ) : (
-              <div className="shopping-cart__empty-message">
-                Please make some order first on the store page
+              <div className="shopping-cart__ordered-items">
+                {data.length > 0 && (
+                  <>
+                    {data.map((value) => {
+                      return (
+                        <CartItem
+                          value={value}
+                          fetchData={fetchData}
+                          toast={toast}
+                        />
+                      );
+                    })}
+                  </>
+                )}
               </div>
-            )}
-          </>
-        )}
-      </div>
+              <div className="shopping-cart__modal">
+                <CartModal
+                  data={data}
+                  isOpen={isOpen}
+                  onClose={onClose}
+                  handleOrder={handleOrder}
+                />
+              </div>
+            </div>
+          ) : (
+            <div className="shopping-cart__empty-message">
+              Please make some order first on the store page
+            </div>
+          )}
+        </div>
+      )}
+
       {isOrdered ? (
         <div className="shopping-cart__success-button">
           <Button

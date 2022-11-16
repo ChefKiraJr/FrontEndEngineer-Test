@@ -9,7 +9,10 @@ const CartItem = ({ value, fetchData, toast }) => {
     try {
       if (value.quantity > 1) {
         const body = { quantity: value.quantity - 1 };
-        await axios.patch(`http://localhost:3004/cartData/${value.id}`, body);
+        await axios.patch(
+          `https://frontend-test-fake-api.herokuapp.com/cartData/${value.id}`,
+          body
+        );
         toast({
           title: 'Reduce Success',
           description: 'Chosen film quantity has been reduced.',
@@ -22,7 +25,7 @@ const CartItem = ({ value, fetchData, toast }) => {
       } else {
         toast({
           title: 'Reduce Failed',
-          description: `Chosen film quantity can't be less than 1.`,
+          description: `Chosen film quantity can't be less than one.`,
           status: 'error',
           position: 'top',
           duration: 1000,
@@ -36,7 +39,10 @@ const CartItem = ({ value, fetchData, toast }) => {
   const handleIncrease = async (value) => {
     try {
       const body = { quantity: value.quantity + 1 };
-      await axios.patch(`http://localhost:3004/cartData/${value.id}`, body);
+      await axios.patch(
+        `https://frontend-test-fake-api.herokuapp.com/cartData/${value.id}`,
+        body
+      );
       toast({
         title: 'Increase Success',
         description: 'Chosen film quantity has been increased.',

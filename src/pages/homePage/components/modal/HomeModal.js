@@ -16,7 +16,7 @@ import './homeModal.css';
 
 const HomeModal = ({ data, isOpen, onClose }) => {
   const [modalData, setModalData] = useState({
-    username: '',
+    name: '',
     email: '',
     telephone: '',
     address: '',
@@ -41,7 +41,7 @@ const HomeModal = ({ data, isOpen, onClose }) => {
   const handleSave = () => {
     let temp = { ...modalData };
     setModalData(temp);
-    localStorage.setItem('username', temp.username);
+    localStorage.setItem('name', temp.name);
     localStorage.setItem('email', temp.email);
     localStorage.setItem('telephone', temp.telephone);
     localStorage.setItem('address', temp.address);
@@ -60,7 +60,7 @@ const HomeModal = ({ data, isOpen, onClose }) => {
   const saveValidation = (temp) => {
     let isValid = true;
     Object.keys(temp).forEach((key) => {
-      if (key === 'username' || key === 'address' || key === 'email') {
+      if (key === 'name' || key === 'address' || key === 'email') {
         if (temp[key].length === 0) {
           isValid = false;
         }
@@ -82,7 +82,7 @@ const HomeModal = ({ data, isOpen, onClose }) => {
       setModalData(data);
     } else {
       setModalData({
-        username: '',
+        name: '',
         email: '',
         telephone: '',
         address: '',
@@ -97,14 +97,14 @@ const HomeModal = ({ data, isOpen, onClose }) => {
         <ModalCloseButton />
         <ModalBody>
           <div className="home-page-modal__personal-information">
-            <div className="home-page-modal__username">
-              <div className="home-page-modal__input-label">Username</div>
+            <div className="home-page-modal__name">
+              <div className="home-page-modal__input-label">Name</div>
               <Input
                 className="home-page-modal__input-text"
-                placeholder="Masukkan Nama Anda"
-                name="username"
+                placeholder="Please input your name"
+                name="name"
                 type="text"
-                value={modalData.username}
+                value={modalData.name}
                 focusBorderColor="green.400"
                 onChange={(event) => handleChange(event)}
                 required
@@ -114,7 +114,7 @@ const HomeModal = ({ data, isOpen, onClose }) => {
               <div className="home-page-modal__input-label">Email</div>
               <Input
                 className="home-page-modal__input-text"
-                placeholder="Masukkan Email Anda"
+                placeholder="Please input your email"
                 name="email"
                 type="email"
                 value={modalData.email}
@@ -125,10 +125,10 @@ const HomeModal = ({ data, isOpen, onClose }) => {
             </div>
 
             <div className="home-page-modal__telephone">
-              <div className="home-page-modal__input-label">Telepon</div>
+              <div className="home-page-modal__input-label">Telephone</div>
               <Input
                 className="home-page-modal__input-text"
-                placeholder="Masukkan Email Anda"
+                placeholder="Please input your telephone"
                 name="telephone"
                 type="number"
                 value={modalData.telephone}
@@ -139,10 +139,10 @@ const HomeModal = ({ data, isOpen, onClose }) => {
             </div>
 
             <div className="home-page-modal__address">
-              <div className="home-page-modal__input-label">Alamat</div>
+              <div className="home-page-modal__input-label">Address</div>
               <Input
                 className="home-page-modal__input-text"
-                placeholder="Masukkan Email Anda"
+                placeholder="Please input your address"
                 name="address"
                 type="text"
                 value={modalData.address}
