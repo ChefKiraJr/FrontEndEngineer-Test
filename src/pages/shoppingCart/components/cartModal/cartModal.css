@@ -1,0 +1,21 @@
+.shopping-cart__purchase-title {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.shopping-cart__purchase-item {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.purchase-item__quantity {
+  padding-left: 9px;
+}
+
+.shopping-cart-modal__button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

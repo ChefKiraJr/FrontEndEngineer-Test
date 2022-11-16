@@ -1,22 +1,88 @@
 .home-page__container {
-  max-width: 576px;
-  margin: auto;
+  max-width: 768px;
+  height: 100vh;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-page__welcome {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.home-page__welcome-username {
+  color: #22c35e;
 }
 
 .home-page__content {
   width: 100%;
-  height: 100vh;
-  padding: 0 10%;
+  padding: 24px 12px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 4px 8px 32px rgb(0 0 0 / 10%);
+}
+
+.home-page__title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.home-page__personal-information {
+  margin-bottom: 24px;
+}
+
+.home-page__username {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #22c35e;
+}
+
+.home-page__email {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #22c35e;
+}
+
+.home-page__telephone {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #22c35e;
+}
+
+.home-page__address {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #22c35e;
+}
+
+.home-page__information-label {
+  font-size: 14px;
+  color: #4c4c4c;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.home-page__information-content {
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 
 .home-page__button {
   width: 100%;
+  max-width: 768px;
   display: flex;
   justify-content: center;
+  margin-top: 20px;
+  position: fixed;
+  bottom: 30px;
 }
 
-.home-page__modal-button {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+@media (max-width: 320px) {
+  .home-page__button {
+    bottom: 8px;
+  }
+  .home-page__welcome {
+    margin-bottom: 10px;
+  }
 }

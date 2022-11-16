@@ -1,9 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './header.css';
+import { MdLogout } from 'react-icons/md';
 
 const Header = ({ page }) => {
   const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/');
+  };
   return (
     <div className="header__container">
       <div className="header__menu">
@@ -26,7 +31,13 @@ const Header = ({ page }) => {
           Shopping Cart
         </div>
       </div>
-      <div className="header__logout" onClick={() => navigate('/')}>
+      <div className="header__logout" onClick={handleLogout}>
+        <MdLogout
+          style={{
+            color: '#1a202c',
+            marginRight: '4px',
+          }}
+        />
         Logout
       </div>
     </div>

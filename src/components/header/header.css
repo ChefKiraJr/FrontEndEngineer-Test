@@ -1,35 +1,57 @@
 .header__container {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
   width: 100%;
-  padding-left: 10%;
-  padding-right: 5%;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  max-width: 768px;
+  padding: 1em 1em;
   display: flex;
   justify-content: space-between;
+  background-color: white;
+  box-shadow: 2px 4px 16px rgb(0 0 0 / 5%);
 }
 
 .header__menu {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 70%;
+  max-width: 400px;
   cursor: pointer;
 }
 
 .header__logout {
   font-weight: 600;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 2;
+  display: flex;
+  align-items: center;
 }
 
 .active-header {
   text-decoration: underline;
   text-underline-offset: 7px;
   font-weight: 600;
-  font-size: 14px;
-  color: #179848;
+  font-size: 16px;
+  line-height: 2;
+  color: #22c35e;
 }
 
 .inactive-header {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 2;
+}
+
+@media (max-width: 375px) {
+  .header__logout {
+    font-size: 14px;
+  }
+  .active-header {
+    font-size: 14px;
+  }
+  .inactive-header {
+    font-size: 14px;
+  }
 }
