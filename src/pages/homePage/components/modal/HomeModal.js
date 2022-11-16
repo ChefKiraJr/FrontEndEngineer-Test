@@ -23,6 +23,34 @@ const HomeModal = ({ data, isOpen, onClose }) => {
   });
   const [isValidate, setIsValidate] = useState(false);
   const toast = useToast();
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+  const saveValidation = (temp) => {
+    let isValid = true;
+    Object.keys(temp).forEach((key) => {
+      if (key === 'name' || key === 'address') {
+        if (temp[key].length === 0) {
+          isValid = false;
+        }
+      }
+      if (key === 'email') {
+        if (!validateEmail(temp[key])) {
+          isValid = false;
+        }
+      }
+      if (key === 'telephone') {
+        if (temp[key][0] === '0' || temp[key].length <= 9) {
+          isValid = false;
+        }
+      }
+    });
+    return isValid;
+  };
   const handleChange = (e) => {
     let temp = { ...modalData };
     if (e.target.name === 'telephone') {
@@ -56,22 +84,6 @@ const HomeModal = ({ data, isOpen, onClose }) => {
     setTimeout(() => {
       window.location.reload();
     }, 1500);
-  };
-  const saveValidation = (temp) => {
-    let isValid = true;
-    Object.keys(temp).forEach((key) => {
-      if (key === 'name' || key === 'address' || key === 'email') {
-        if (temp[key].length === 0) {
-          isValid = false;
-        }
-      }
-      if (key === 'telephone') {
-        if (temp[key][0] === '0' || temp[key].length <= 9) {
-          isValid = false;
-        }
-      }
-    });
-    return isValid;
   };
   useEffect(() => {
     if (isOpen) {
