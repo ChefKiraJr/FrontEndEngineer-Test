@@ -30,9 +30,8 @@ const LoginPage = () => {
   };
   const passValidation = (password) => {
     const check1 = password.length >= 3;
-    const check2 = password.length <= 10;
-    const check3 = new RegExp('^(?=.*[A-Z]).+$').test(password);
-    return check1 && check2 && check3;
+    const check2 = new RegExp('^(?=.*[A-Z]).+$').test(password);
+    return check1 && check2;
   };
   const loginValidation = (temp) => {
     let isValid = true;
@@ -54,14 +53,15 @@ const LoginPage = () => {
     let temp = { ...input };
     let tempError = { ...errorMessage };
     if (e.target.name === 'password') {
-      temp[e.target.name] = e.target.value;
+      temp[e.target.name] = e.target.value.slice(0, 10);
       if (!passValidation(e.target.value)) {
         tempError[e.target.name] =
           '*Password must consist of 3 - 10 character with one capital letter';
       } else {
         tempError[e.target.name] = '';
       }
-    } else if (e.target.name === 'username') {
+    }
+    if (e.target.name === 'username') {
       temp[e.target.name] = e.target.value;
       if (!usernameValidation(e.target.value)) {
         tempError[e.target.name] = '*Usename must consist of 3 - 30 character';

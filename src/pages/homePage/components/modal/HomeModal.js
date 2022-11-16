@@ -66,11 +66,7 @@ const HomeModal = ({ data, isOpen, onClose }) => {
         }
       }
       if (key === 'telephone') {
-        if (
-          temp[key][0] === '0' ||
-          temp[key].length <= 9 ||
-          temp[key].length >= 13
-        ) {
+        if (temp[key][0] === '0' || temp[key].length <= 9) {
           isValid = false;
         }
       }
