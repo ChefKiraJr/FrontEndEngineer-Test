@@ -23,8 +23,9 @@ const Store = () => {
   const fetchData = async () => {
     try {
       const { data } = await axios.get(
-        'https://frontend-test-fake-api.herokuapp.com/films'
+        'https://movie-shop-fake-api.onrender.com/films'
       );
+      // const { data } = await axios.get('http://localhost:3004/films');
       setData(data);
       setTimeout(() => {
         setIsLoading(false);
@@ -37,9 +38,10 @@ const Store = () => {
     try {
       const body = { isAdded: value.isAdded ? false : true };
       await axios.patch(
-        `https://frontend-test-fake-api.herokuapp.com/films/${value.id}`,
+        `https://movie-shop-fake-api.onrender.com/films/${value.id}`,
         body
       );
+      // await axios.patch(`http://localhost:3004/films/${value.id}`, body);
       await fetchData();
     } catch (err) {
       console.log(err);
@@ -49,9 +51,10 @@ const Store = () => {
     try {
       const body = { ...value, quantity: 1 };
       await axios.post(
-        'https://frontend-test-fake-api.herokuapp.com/cartData',
+        'https://movie-shop-fake-api.onrender.com/cartData',
         body
       );
+      // await axios.post('http://localhost:3004/cartData', body);
       await handleEditData(value);
       toast({
         title: 'Add Success',
@@ -68,8 +71,9 @@ const Store = () => {
   const handleRemove = async (value) => {
     try {
       await axios.delete(
-        `https://frontend-test-fake-api.herokuapp.com/cartData/${value.id}`
+        `https://movie-shop-fake-api.onrender.com/cartData/${value.id}`
       );
+      // await axios.delete(`http://localhost:3004/cartData/${value.id}`);
       await handleEditData(value);
       toast({
         title: 'Remove Success',

@@ -17,8 +17,9 @@ const ShoppingCart = () => {
   const fetchData = async () => {
     try {
       const { data } = await axios.get(
-        'https://frontend-test-fake-api.herokuapp.com/cartData'
+        'https://movie-shop-fake-api.onrender.com/cartData'
       );
+      // const { data } = await axios.get('http://localhost:3004/cartData');
       setData(data);
     } catch (err) {
       console.log(err);
@@ -29,12 +30,14 @@ const ShoppingCart = () => {
       const body = { isAdded: false };
       for (let i = 0; i < data.length; i++) {
         await axios.delete(
-          `https://frontend-test-fake-api.herokuapp.com/cartData/${data[i].id}`
+          `https://movie-shop-fake-api.onrender.com/cartData/${data[i].id}`
         );
+        // await axios.delete(`http://localhost:3004/cartData/${data[i].id}`);
         await axios.patch(
-          `https://frontend-test-fake-api.herokuapp.com/films/${data[i].id}`,
+          `https://movie-shop-fake-api.onrender.com/films/${data[i].id}`,
           body
         );
+        // await axios.patch(`http://localhost:3004/films/${data[i].id}`, body);
       }
       toast({
         title: 'Order Success',

@@ -10,9 +10,10 @@ const CartItem = ({ value, fetchData, toast }) => {
       if (value.quantity > 1) {
         const body = { quantity: value.quantity - 1 };
         await axios.patch(
-          `https://frontend-test-fake-api.herokuapp.com/cartData/${value.id}`,
+          `https://movie-shop-fake-api.onrender.com/cartData/${value.id}`,
           body
         );
+        // await axios.patch(`http://localhost:3004/cartData/${value.id}`, body);
         toast({
           title: 'Reduce Success',
           description: 'Chosen film quantity has been reduced.',
@@ -40,9 +41,10 @@ const CartItem = ({ value, fetchData, toast }) => {
     try {
       const body = { quantity: value.quantity + 1 };
       await axios.patch(
-        `https://frontend-test-fake-api.herokuapp.com/cartData/${value.id}`,
+        `https://movie-shop-fake-api.onrender.com/cartData/${value.id}`,
         body
       );
+      // await axios.patch(`http://localhost:3004/cartData/${value.id}`, body);
       toast({
         title: 'Increase Success',
         description: 'Chosen film quantity has been increased.',

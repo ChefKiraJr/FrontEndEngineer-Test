@@ -20,7 +20,7 @@
     {
       "id": 1,
       "title": "The Dark Knight",
-      "isAdded": false
+      "isAdded": true
     },
     {
       "id": 2,
@@ -30,7 +30,7 @@
     {
       "id": 3,
       "title": "The Godfather",
-      "isAdded": false
+      "isAdded": true
     },
     {
       "id": 4,
@@ -40,7 +40,7 @@
     {
       "id": 5,
       "title": "Memento",
-      "isAdded": false
+      "isAdded": true
     },
     {
       "id": 6,
@@ -63,5 +63,24 @@
       "isAdded": false
     }
   ],
-  "cartData": []
+  "cartData": [
+    {
+      "id": 1,
+      "title": "The Dark Knight",
+      "isAdded": false,
+      "quantity": 2
+    },
+    {
+      "id": 3,
+      "title": "The Godfather",
+      "isAdded": false,
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "title": "Memento",
+      "isAdded": false,
+      "quantity": 1
+    }
+  ]
 }
