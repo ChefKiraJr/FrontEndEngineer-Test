@@ -9,6 +9,7 @@
 .store__content {
   width: 100%;
   padding: 12px 12px;
+  padding-bottom: 120px;
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 4px 8px 32px rgb(0 0 0 / 10%);
@@ -63,7 +64,9 @@
   display: flex;
   justify-content: center;
   position: fixed;
-  bottom: 26px;
+  bottom: 0;
+  padding: 24px 0;
+  background-color: white;
 }
 
 .store__incomplete-button {
